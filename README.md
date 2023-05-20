@@ -1,7 +1,7 @@
 ### 项目介绍
 本项目Scrapy进行数据爬取，并使用Django框架+PyEcharts实现可视化大屏。
 
-![img](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/python/scenery_spider_web/README.assets/img.png)
+![img](./README.assets/img.png)
 
 
 
