@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>用户登录</title>
+    <link href="{% static 'login/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/css/signin.css' %}" rel="stylesheet">
+
+</head>
+<body class="text-center">
+<form class="form-signin" action="/register/" method="post">
+    {% csrf_token %}
+{#    <img class="mb-4" src="{% static 'login/img/login.jpg' %}" width="72" height="72">#}
+    <h1 class="h3 mb-3 font-weight-normal" >{{ tip }}</h1>
+    <div class="row">
+        <input type="text" class="form-control" placeholder="{{ username }}" required="" autofocus="" name="username" style="margin-bottom: 10px">
+        <input type="password" class="form-control" placeholder="{{ password }}" required="" name="password">
+        <input type="password" class="form-control" placeholder="确认{{ password }}" required="" name="repassword">
+{#        <div class="col-xs-7">#}
+{#            <input type="text" name="code" class="form-control" placeholder="请输入图片验证码" required="" id="id_code">#}
+{#            <span style="color:red"></span>#}
+{#        </div>#}
+{#        <div class="col-xs-5">#}
+{#            <img src="/img/code/" alt="验证码" id="image_code" style="height: 40px">#}
+{#        </div>#}
+
+    </div>
+    <div class="checkbox mb-lg-1">
+        <label>
+            <a href="/login/">{{ go }}</a>
+        </label>
+    </div>
+    <div class="row">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" >{{ login }}</button>
+        </div>
+    <span
+        ></span>
+    <span style="color: red">{{ error }}</span>
+    <p class="mt-5 mb-3 text-muted">©<span >{{ year }}</span>-<span >{{ next_year }}</span> </p>
+
+</form>
+
+<script src="{% static 'login/js/jquery.js' %}"></script>
+</body>
+</html>

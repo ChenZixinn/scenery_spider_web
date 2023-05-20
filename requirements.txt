@@ -1,0 +1,12 @@
+Django==4.0.5
+django_pandas==0.6.6
+itemadapter==0.6.0
+jieba==0.42.1
+lxml==4.9.0
+pandas==2.0.0
+pyecharts==2.0.2
+PyMySQL==1.0.3
+Scrapy==2.6.1
+scrapy_djangoitem==1.1.1
+SQLAlchemy==2.0.9
+Twisted==22.10.0

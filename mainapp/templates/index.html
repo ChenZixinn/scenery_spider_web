@@ -1,0 +1,426 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>基于数据可视化的游客行为分析系统</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <style>
+        .t_title {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 2.5em;
+            line-height: 80px;
+            color: #fff;
+        }
+
+        #chart_map {
+        {#cursor: pointer;#}
+        }
+
+        .t_show {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 2px;
+            background: #2C58A6;
+            padding: 2px 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--header-->
+<div class="header">
+    <div class="bg_header">
+        <div class="header_nav fl t_title">
+            基于数据可视化的游客行为分析系统
+        </div>
+    </div>
+</div>
+
+<!--main-->
+<div class="data_content">
+    <div class="data_time">
+        温馨提示: 点击模块后跳转至详情页面。(数据更新时间:{{ spider_time }})
+    </div>
+
+    <div class="data_main">
+        <div class="main_left fl">
+            <div class="left_1 t_btn6" style="cursor: pointer;">
+                <div id="chart_1" class="main_table" style="width:100%;height: 280px;cursor: pointer">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>评分排名</th>
+                            <th>景点名称</th>
+                            <th>评分</th>
+{#                            <th>地点</th>#}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for col in p2 %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ col.scenery_name }}</td>
+                                <td>{{ col.score }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+{#                <!--左上边框-->#}
+{#                <div class="t_line_box">#}
+{#                    <i class="t_l_line"></i>#}
+{#                    <i class="l_t_line"></i>#}
+{#                </div>#}
+{#                <!--右上边框-->#}
+{#                <div class="t_line_box">#}
+{#                    <i class="t_r_line"></i>#}
+{#                    <i class="r_t_line"></i>#}
+{#                </div>#}
+{#                <!--左下边框-->#}
+{#                <div class="t_line_box">#}
+{#                    <i class="l_b_line"></i>#}
+{#                    <i class="b_l_line"></i>#}
+{#                </div>#}
+{#                <!--右下边框-->#}
+{#                <div class="t_line_box">#}
+{#                    <i class="r_b_line"></i>#}
+{#                    <i class="b_r_line"></i>#}
+{#                </div>#}
+                <div class="main_title">
+                    <img src="{% static 'img/t_1.png' %}" alt="">
+                    <a href="/page?p=2" style="color: white">景点评分数据</a>
+                </div>
+
+            </div>
+            <div class="left_2" style="cursor: pointer;">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_2.png' %}" alt="">
+                    <a href="/page?p=4" style="color: white">景点人数分析</a>
+                </div>
+                <div id="chart_2" class="chart t_btn9" style="width:100%;height: 280px;">
+                    {{ p4 | safe }}
+                </div>
+            </div>
+        </div>
+        <div class="main_center fl">
+            <div class="center_text">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_3.png' %}" alt="">
+                    <a href="/page?p=1" style="color: white">长沙景点地图</a>
+                </div>
+                <div id="chart_map" style="width:100%;height:610px;">
+                    {{ p1 | safe }}
+                </div>
+            </div>
+        </div>
+        <div class="main_right fr">
+            <div class="right_1">
+                <div id="chart_3" class="main_table t_btn8" style="width:100%;height: 280px;">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>景点名称</th>
+                            <th>浏览人数</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for col in p3 %}
+                        <tr>
+                               <td>{{ forloop.counter }}</td>
+                               <td>{{ col.scenery_name }}</td>
+                               <td>{{ col.people_percent }}%</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+{#                <!--左上边框-->#}
+{#                <div class="t_line_box">#}
+{#                    <i class="t_l_line"></i>#}
+{#                    <i class="l_t_line"></i>#}
+{#                </div>#}
+{#                <!--右上边框-->#}
+{#                <div class="t_line_box">#}
+{#                    <i class="t_r_line"></i>#}
+{#                    <i class="r_t_line"></i>#}
+{#                </div>#}
+{#                <!--左下边框-->#}
+{#                <div class="t_line_box">#}
+{#                    <i class="l_b_line"></i>#}
+{#                    <i class="b_l_line"></i>#}
+{#                </div>#}
+{#                <!--右下边框-->#}
+{#                <div class="t_line_box">#}
+{#                    <i class="r_b_line"></i>#}
+{#                    <i class="b_r_line"></i>#}
+{#                </div>#}
+                <div class="main_title">
+                    <img src="{% static 'img/t_4.png' %} " alt="">
+                    <a href="/page?p=3" style="color: white">景点浏览人数</a>
+                </div>
+            </div>
+            <div class="right_2">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_5.png' %}" alt="">
+                    <a href="/page?p=5" style="color: white">评论词云</a>
+                </div>
+{#                <div id="chart_4" class="echart fl t_btn4" style="width:100%;height: 280px;cursor: pointer;">#}
+                <div id="chart_4" class="echart t_btn4" style="width:100%;height: 280px; padding-left: 10px">
+                    {{ p5 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="data_bottom">
+        <div class="bottom_1 fl t_btn5" style="cursor: pointer;">
+            <!--左上边框-->
+            <div class="t_line_box">
+                <i class="t_l_line"></i>
+                <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+                <i class="t_r_line"></i>
+                <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+                <i class="l_b_line"></i>
+                <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+                <i class="r_b_line"></i>
+                <i class="b_r_line"></i>
+            </div>
+            <div class="main_title">
+                <img src="{% static 'img/t_6.png' %} " alt="">
+                <a href="/page?p=6" style="color: white"
+                >景点浏览时间</a>
+            </div>
+            <div id="chart_5" class="echart fl" style="width:100%;height: 250px;margin-top: 15px;">
+                {{ p6 | safe }}
+            </div>
+        </div>
+        <div class="bottom_center fl">
+            <div class="bottom_2 fl">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_7.png' %} " alt="">
+                    <a href="/page?p=7" style="color: white">景点分布</a>
+                </div>
+                <div class="t_btn8">
+                    {{ p7 | safe }}
+                </div>
+            </div>
+{#                        <div class="bottom_3 fl">#}
+{#                            <!--左上边框-->#}
+{#                            <div class="t_line_box">#}
+{#                                <i class="t_l_line"></i> #}
+{#                                <i class="l_t_line"></i> #}
+{#                            </div> #}
+{#                            <!--右上边框-->#}
+{#                            <div class="t_line_box">#}
+{#                                <i class="t_r_line"></i> #}
+{#                                <i class="r_t_line"></i> #}
+{#                            </div> #}
+{#                            <!--左下边框-->#}
+{#                            <div class="t_line_box">#}
+{#                                <i class="l_b_line"></i> #}
+{#                                <i class="b_l_line"></i> #}
+{#                            </div> #}
+{#                                <!--右下边框-->#}
+{#                                <div class="t_line_box">#}
+{#                                <i class="r_b_line"></i> #}
+{#                                <i class="b_r_line"></i> #}
+{#                            </div>#}
+{#                            <div class="main_title">#}
+{#                                <img src="{% static 'img/t_7.png' %}" alt="">#}
+{#                               湖南省业务量#}
+{#                            </div>#}
+{#                            <div class="main_table t_btn2">#}
+{#                                <table>#}
+{#                                    <thead>#}
+{#                                    <tr>#}
+{#                                        <th>省内(万件)</th>#}
+{#                                        <th>省外(万件)</th>#}
+{#                                        <th>国际(万件)</th>#}
+{#                                        <th>总业务量(万件)</th>#}
+{#                                        <th>日期</th>#}
+{#                                    </tr>#}
+{#                                    </thead>#}
+{#                                    <tbody>#}
+{#                                    <tr>#}
+{#                                        <td>21352.36</td>#}
+{#                                        <td>68575.6</td>#}
+{#                                        <td>464.43</td>#}
+{#                                        <td>90392.39</td>#}
+{#                                        <td>2018年</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td>17522.41</td>#}
+{#                                        <td>37111.03</td>#}
+{#                                        <td>278.5</td>#}
+{#                                        <td>54911.94</td>#}
+{#                                        <td>2017年</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td>7014.14</td>#}
+{#                                        <td>26841.29</td>#}
+{#                                        <td>163.72</td>#}
+{#                                        <td>34019.15</td>#}
+{#                                        <td>2016年</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td>2553.55</td>#}
+{#                                        <td>18072.54</td>#}
+{#                                        <td>129.65</td>#}
+{#                                        <td>20755.74</td>#}
+{#                                        <td>2015年</td>#}
+{#                                    </tr>#}
+{#                                    <tr>#}
+{#                                        <td>1427.04</td>#}
+{#                                        <td>10859.54</td>#}
+{#                                        <td>182.54</td>#}
+{#                                        <td>12469.11</td>#}
+{#                                        <td>2014年</td>#}
+{#                                    </tr>#}
+{#                                    </tbody>#}
+{#                                </table>#}
+{#                            </div>#}
+{#                        </div>#}
+        </div>
+        <div class="bottom_4 fr">
+            <!--左上边框-->
+            <div class="t_line_box">
+                <i class="t_l_line"></i>
+                <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+                <i class="t_r_line"></i>
+                <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+                <i class="l_b_line"></i>
+                <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+                <i class="r_b_line"></i>
+                <i class="b_r_line"></i>
+            </div>
+            <div class="main_title">
+                <img src="{% static 'img/t_7.png' %}" alt="">
+                <a href="/page?p=8" style="color: white">景点评分</a>
+            </div>
+            <div class="main_table t_btn3">
+                {{ p8 | safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="{% static 'js/jquery-2.2.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+<script src="{% static 'js/common.js' %}"></script>
+{#<script src="{% static 'js/dataTool.js' %}"></script>#}
+{#<script src="{% static 'js/index.js' %}"></script>#}
+{#<script src="{% static 'js/china.js' %}"></script>#}
+{#<script src="{% static 'js/hunan.js' %}"></script>#}
+</html>
