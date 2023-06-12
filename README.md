@@ -1,11 +1,11 @@
 ### 1、项目介绍
 
 本项目Scrapy进行数据爬取，并使用Django框架+PyEcharts实现可视化大屏。效果如下：
-![image-20230612133737420](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/python/scenery_spider_web/README.assets/image-20230612133737420.png)
+![image-20230612133737420](./README.assets/image-20230612133737420.png)
 
-![f280a159-35f3-4d8a-bcef-012dd20dd279](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/python/scenery_spider_web/README.assets/f280a159-35f3-4d8a-bcef-012dd20dd279.png)
+![f280a159-35f3-4d8a-bcef-012dd20dd279](./README.assets/f280a159-35f3-4d8a-bcef-012dd20dd279.png)
 
-![91c6e606-349a-498f-9e9a-6e5b0ea3f3b4](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/python/scenery_spider_web/README.assets/91c6e606-349a-498f-9e9a-6e5b0ea3f3b4.png)
+![91c6e606-349a-498f-9e9a-6e5b0ea3f3b4](./README.assets/91c6e606-349a-498f-9e9a-6e5b0ea3f3b4.png)
 
 每个模块都有详情页，可以通过点击首页各个模块的标签，进行访问。
 
