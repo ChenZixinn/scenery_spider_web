@@ -99,7 +99,7 @@ source ./data_bak/hunan_web_2023-05-12.sql
 scrapy crawl qunaer
 ```
 
-![image-20230612145034448](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/python/scenery_spider_web/README.assets/image-20230612145034448.png)
+![image-20230612145034448](./README.assets/image-20230612145034448.png)
 
 
 
@@ -133,7 +133,7 @@ pip install --upgrade scrapy
 python manage.py runserver
 ```
 
-![image-20230612141826864](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/python/scenery_spider_web/README.assets/image-20230612141826864.png)
+![image-20230612141826864](./README.assets/image-20230612141826864.png)
 
 
 
