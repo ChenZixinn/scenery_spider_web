@@ -84,7 +84,7 @@ DATABASES = {
         },
         "NAME": "hunan_web",
         "USER": "root",
-        "PASSWORD": "密码",
+        "PASSWORD": "password",
         "HOST": "127.0.0.1",
         "POST": 3306
     }

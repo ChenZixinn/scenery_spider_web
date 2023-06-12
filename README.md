@@ -55,18 +55,7 @@ use hunan_web;
 
 
 
-#### 3.2、创建表
-
-sql文件存在了部分数据，可以直接使用。（请检查路径，确保能访问到这个文件。）
-
-```shell
-# 导入数据
-source ./data_bak/hunan_web_2023-05-12.sql
-```
-
-
-
-#### 3.3、设置数据库信息
+#### 3.2、设置数据库信息
 
 在 [settings.py](hunan_web/settings.py)文件中修改数据库连接信息
 
@@ -88,6 +77,19 @@ DATABASES = {
 
 
 
+#### 3.3、创建表
+
+sql文件存在了部分数据，可以直接使用。
+
+```shell
+# 切换数据库, hunan_web可以替换成你要使用的数据库名
+use hunan_web;
+# 导入数据
+source ./data_bak/hunan_web_2023-05-12.sql
+```
+
+
+
 ### 4、爬虫运行
 
 ##### 进行增量爬取
@@ -96,6 +98,8 @@ DATABASES = {
 # 启动scrapy爬虫
 scrapy crawl qunaer
 ```
+
+![image-20230612145034448](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/python/scenery_spider_web/README.assets/image-20230612145034448.png)
 
 
 
@@ -128,6 +132,19 @@ pip install --upgrade scrapy
 # 运行web，默认8000端口
 python manage.py runserver
 ```
+
+![image-20230612141826864](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/python/scenery_spider_web/README.assets/image-20230612141826864.png)
+
+
+
+### 6、总结
+
+完成上面的部署就可以运行本程序了。
+
+如果你想采集其他城市的数据进行分析，可以修改 [qunaer.py](spider_qunaer/spiders/qunaer.py) 中的链接地址。
+
+如果你想绘制其他的图形，可以修改 [all_map.py](mainapp/utils/all_map.py) 中的pyecharts代码，并适当修改 [views.py](mainapp/views.py) 。
+
 
 
 

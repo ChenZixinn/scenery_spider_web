@@ -54,32 +54,6 @@ def page(request):
     result['page_data'] = map_list
     if page in [1,2]:
         result["is_chart"] = False
-    # elif page == '2':
-    #     result['is_chart'] = False
-    #     result['data'] = data["p2"]
-    #     result["title"] = "景点评分数据"
-    # elif page == '3':
-    #     result["is_chart"] = False
-    #     result['data'] = data["p3"]
-    #     result["title"] = "景点浏览人数"
-    # elif page == '4':
-    #     result['data'] = p4
-    #     result["title"] = "浏览时间"
-    # elif page == '5':
-    #     result['data'] = p5
-    #     result["title"] = "景点评价词云"
-    # elif page == '6':
-    #     result['data'] = p6
-    #     result["title"] = "景点浏览时间"
-    # elif page == '7':
-    #     result['data'] = p7
-    #     result["title"] = "地区景点数量"
-    # elif page == '8':
-    #     result['data'] = p8
-    #     result["title"] = "景点评分"
-    # else:
-    #     # result['data'] = map
-    #     result["title"] = "中国地图"
     return render(request, 'page/index.html', result)
 
 
