@@ -84,8 +84,8 @@ sql文件存在了部分数据，可以直接使用。
 ```shell
 # 切换数据库, hunan_web可以替换成你要使用的数据库名
 use hunan_web;
-# 导入数据
-source ./data_bak/hunan_web_2023-05-12.sql
+# 导入数据，推荐使用绝对路径
+source ./new_hunan_web.sql
 ```
 
 
